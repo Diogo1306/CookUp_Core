@@ -89,9 +89,9 @@ class Recipe
 
     private static function parseCategories($recipe)
     {
-        $ids = explode(',', $recipe['category_ids'] ?? '');
-        $names = explode(',', $recipe['category_names'] ?? '');
-        $colors = explode(',', $recipe['category_colors'] ?? []);
+        $ids = explode(',', (string)($recipe['category_ids'] ?? ''));
+        $names = explode(',', (string)($recipe['category_names'] ?? ''));
+        $colors = explode(',', (string)($recipe['category_colors'] ?? ''));
 
         $categories = [];
         for ($i = 0; $i < count($ids); $i++) {
@@ -104,6 +104,7 @@ class Recipe
 
         return $categories;
     }
+
 
     public static function getAllRecipes()
     {
@@ -126,7 +127,8 @@ class Recipe
 
         $recipes = [];
 
-        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        $result = $stmt->get_result();
+        while ($row = $result->fetch_assoc()) {
             $row['categories'] = self::parseCategories($row);
             unset($row['category_ids']);
             unset($row['category_names']);
@@ -192,30 +194,55 @@ class Recipe
         return $recipe;
     }
 
-    public static function getPopularRecipes()
+    public static function getPopularWithPagination($page)
     {
+        $limit = 6;
+        $offset = ($page - 1) * $limit;
+
         $db = Database::connect();
+
         $stmt = $db->prepare("
-            SELECT 
-                r.*, 
-                GROUP_CONCAT(c.category_id) AS category_ids,
-                GROUP_CONCAT(c.category_name) AS category_names
-            FROM recipes r
-            LEFT JOIN recipe_category rc ON rc.recipe_id = r.recipe_id
-            LEFT JOIN categories c ON c.category_id = rc.category_id
-            GROUP BY r.recipe_id
-            ORDER BY (r.favorites_count * 2 + r.views_count) DESC
-            LIMIT 10
-        ");
+        SELECT 
+            r.recipe_id,
+            r.title,
+            r.description,
+            r.image,
+            r.preparation_time,
+            r.difficulty,
+            r.servings,
+            r.favorites_count,
+            r.views_count,
+            u.username AS author_name,
+            GROUP_CONCAT(DISTINCT c.category_id) AS category_ids,
+            GROUP_CONCAT(DISTINCT c.category_name) AS category_names
+        FROM recipes r
+        LEFT JOIN users u ON u.user_id = r.author_id
+        LEFT JOIN recipe_category rc ON rc.recipe_id = r.recipe_id
+        LEFT JOIN categories c ON c.category_id = rc.category_id
+        GROUP BY r.recipe_id
+        ORDER BY (r.favorites_count * 2 + r.views_count) DESC
+        LIMIT ? OFFSET ?
+    ");
+
+        $stmt->bind_param("ii", $limit, $offset);
         $stmt->execute();
+
         $result = $stmt->get_result();
         $recipes = [];
 
         while ($row = $result->fetch_assoc()) {
-            $row['categories'] = self::parseCategories($row);
-            unset($row['category_ids']);
-            unset($row['category_names']);
+            $row['categories'] = self::parseCategories([
+                'category_ids' => (string)($row['category_ids'] ?? ''),
+                'category_names' => (string)($row['category_names'] ?? '')
+            ]);
+
+            unset($row['category_ids'], $row['category_names']);
+
             $row['average_rating'] = Rating::getAverageRating($row['recipe_id']);
+            $row['image'] = (!empty($row['image']))
+                ? BASE_URL . UPLOADS_FOLDER . $row['image']
+                : BASE_URL . DEFAULT_IMAGE;
+
             $recipes[] = $row;
         }
 

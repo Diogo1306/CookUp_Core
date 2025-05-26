@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 17, 2025 at 03:31 PM
+-- Generation Time: May 25, 2025 at 05:07 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -253,8 +253,8 @@ CREATE TABLE `recipes` (
 --
 
 INSERT INTO `recipes` (`recipe_id`, `author_id`, `title`, `description`, `instructions`, `difficulty`, `preparation_time`, `servings`, `image`, `created_at`, `updated_at`, `favorites_count`, `views_count`) VALUES
-(3, 13, 'Churros Recheados', 'Churros crocantes por fora e macios por dentro, recheados com diversos sabores como Nutella, doce de leite e baunilha.ggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg', '1. Aqueça a água com manteiga, açúcar e sal.\n2. Adicione a farinha e mexa até formar uma massa homogênea.\n3. Deixe esfriar e misture o ovo.\n4. Modele com bico de confeitar e frite até dourar.\n5. Passe no açúcar e canela.\n6. Recheie com Nutella, doce de leite, creme de baunilha ou geleia.\n7. Sirva quente e aproveite!', 'dificil', 30, 6, 'https://static.itdg.com.br/images/640-440/b0a2d7797c9b1174ec771c88d64d2322/324392-original.jpg', '2025-04-25 17:56:39', '2025-05-11 19:00:51', 29, 124),
-(18, 13, 'Panquecas de Aveia', 'Panquecas saudáveis feitas com aveia e banana.', '1. Mistura a aveia, o leite e os ovos... 2. Cozinha numa frigideira antiaderente...', NULL, 15, 2, 'https://www.anitahealthy.com/wp-content/uploads/2020/11/Panquecas-de-aveia-3.jpg', '2025-04-25 17:56:39', '2025-05-17 12:46:42', 39, 179),
+(3, 13, 'Churros Recheados', 'Churros crocantes por fora e macios por dentro, recheados com diversos sabores como Nutella, doce de leite e baunilha.ggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg', '1. Aqueça a água com manteiga, açúcar e sal.\n2. Adicione a farinha e mexa até formar uma massa homogênea.\n3. Deixe esfriar e misture o ovo.\n4. Modele com bico de confeitar e frite até dourar.\n5. Passe no açúcar e canela.\n6. Recheie com Nutella, doce de leite, creme de baunilha ou geleia.\n7. Sirva quente e aproveite!', 'dificil', 30, 6, 'https://static.itdg.com.br/images/640-440/b0a2d7797c9b1174ec771c88d64d2322/324392-original.jpg', '2025-04-25 17:56:39', '2025-05-25 14:52:18', 34, 169),
+(18, 13, 'Panquecas de Aveia', 'Panquecas saudáveis feitas com aveia e banana.', '1. Mistura a aveia, o leite e os ovos... 2. Cozinha numa frigideira antiaderente...', NULL, 15, 2, 'https://www.anitahealthy.com/wp-content/uploads/2020/11/Panquecas-de-aveia-3.jpg', '2025-04-25 17:56:39', '2025-05-24 13:39:12', 41, 186),
 (19, 13, 'Pizza Caseira', 'Pizza caseira com molho de tomate e queijo.', '1. Prepara a massa... 2. Acrescenta os ingredientes e leva ao forno...', NULL, 50, 4, 'https://images.mrcook.app/recipe-image/01932b85-f423-78fc-aeb1-dc2e3c50f40c?cacheKey=U3VuLCAxMiBKYW4gMjAyNSAwMzozODoyNCBHTVQ=', '2025-02-19 00:26:47', '2025-05-06 21:12:23', 0, 6),
 (20, 13, 'Salada Caesar', 'Salada clássica com molho Caesar.', '1. Junta a alface, o frango grelhado e os croutons... 2. Mistura o molho e serve...', NULL, 10, 2, 'https://cdn.okchef.com/recipes/01j98qy4vamemvk9d964k15hdd/01jaqcwsn1rg9vy3byy2yf8n8y.jpg', '2025-02-19 00:26:47', '2025-05-06 21:12:20', 0, 10),
 (21, 13, 'Tacos Mexicanos', 'Tacos recheados com carne temperada e guacamole.', '1. Cozinha a carne com os temperos... 2. Preenche as tortilhas e adiciona os acompanhamentos...', NULL, 25, 3, 'https://p2.trrsf.com/image/fget/cf/774/0/images.terra.com/2022/03/15/672899432-aprenda-como-fazer-tacos-mexicanos-em-casa-fonte-my-quiet-kitchen-500x500.jpg', '2025-02-19 00:26:47', '2025-04-26 11:48:37', 0, 6),
@@ -390,7 +390,59 @@ INSERT INTO `recipe_views` (`view_id`, `user_id`, `recipe_id`, `viewed_at`) VALU
 (161, 1, 3, '2025-05-11 19:50:55'),
 (162, 1, 3, '2025-05-11 19:59:58'),
 (163, 1, 3, '2025-05-11 20:00:51'),
-(164, 1, 18, '2025-05-17 13:46:42');
+(164, 1, 18, '2025-05-17 13:46:42'),
+(165, 1, 3, '2025-05-17 18:14:44'),
+(166, 1, 3, '2025-05-17 18:22:53'),
+(167, 1, 3, '2025-05-17 18:38:26'),
+(168, 1, 3, '2025-05-17 18:38:37'),
+(169, 1, 18, '2025-05-17 18:38:39'),
+(170, 1, 3, '2025-05-17 18:38:42'),
+(171, 1, 3, '2025-05-17 18:41:52'),
+(172, 1, 3, '2025-05-17 18:46:46'),
+(173, 1, 3, '2025-05-17 18:46:53'),
+(174, 1, 3, '2025-05-17 18:53:52'),
+(175, 1, 3, '2025-05-17 18:54:01'),
+(176, 1, 3, '2025-05-17 19:00:04'),
+(177, 1, 3, '2025-05-17 19:00:16'),
+(178, 1, 3, '2025-05-17 19:02:53'),
+(179, 1, 3, '2025-05-17 19:10:36'),
+(180, 1, 3, '2025-05-17 19:12:41'),
+(181, 1, 3, '2025-05-17 19:13:56'),
+(182, 1, 3, '2025-05-17 19:19:28'),
+(183, 1, 3, '2025-05-17 19:19:36'),
+(184, 1, 3, '2025-05-17 19:30:53'),
+(185, 1, 3, '2025-05-17 19:31:00'),
+(186, 1, 3, '2025-05-17 19:34:11'),
+(187, 1, 3, '2025-05-17 19:35:11'),
+(188, 1, 3, '2025-05-17 19:36:50'),
+(189, 1, 3, '2025-05-17 19:37:55'),
+(190, 1, 3, '2025-05-17 19:38:51'),
+(191, 1, 3, '2025-05-17 19:39:10'),
+(192, 1, 3, '2025-05-17 19:53:27'),
+(193, 1, 3, '2025-05-19 18:32:02'),
+(194, 1, 3, '2025-05-19 18:39:21'),
+(195, 1, 3, '2025-05-19 18:43:16'),
+(196, 1, 18, '2025-05-19 18:43:25'),
+(197, 1, 3, '2025-05-19 19:04:12'),
+(198, 1, 3, '2025-05-19 19:04:38'),
+(199, 1, 3, '2025-05-19 19:04:43'),
+(200, 1, 3, '2025-05-19 20:28:47'),
+(201, 1, 18, '2025-05-19 20:28:53'),
+(202, 1, 3, '2025-05-19 20:29:13'),
+(203, 1, 3, '2025-05-23 10:52:53'),
+(204, 1, 3, '2025-05-23 10:52:56'),
+(205, 1, 3, '2025-05-23 11:43:58'),
+(206, 1, 3, '2025-05-23 12:14:55'),
+(207, 1, 3, '2025-05-23 12:15:01'),
+(208, 1, 18, '2025-05-23 12:15:03'),
+(209, 1, 18, '2025-05-23 13:53:54'),
+(210, 1, 18, '2025-05-23 13:54:50'),
+(211, 1, 3, '2025-05-23 16:18:59'),
+(212, 1, 3, '2025-05-23 16:19:21'),
+(213, 1, 18, '2025-05-24 14:16:58'),
+(214, 1, 3, '2025-05-24 14:17:00'),
+(215, 1, 3, '2025-05-24 17:27:51'),
+(216, 1, 3, '2025-05-25 15:52:18');
 
 --
 -- Triggers `recipe_views`
@@ -456,7 +508,9 @@ INSERT INTO `saved_recipes` (`saved_id`, `list_id`, `recipe_id`, `added_at`) VAL
 (364, 63, 43, '2025-05-11 17:45:29'),
 (366, 63, 18, '2025-05-11 18:02:24'),
 (372, 35, 22, '2025-05-11 19:00:47'),
-(374, 35, 44, '2025-05-17 12:43:46');
+(379, 35, 36, '2025-05-23 12:53:48'),
+(380, 35, 23, '2025-05-23 15:17:57'),
+(383, 35, 3, '2025-05-24 16:27:54');
 
 -- --------------------------------------------------------
 
@@ -501,11 +555,11 @@ CREATE TABLE `user_category_stats` (
 --
 
 INSERT INTO `user_category_stats` (`user_id`, `category_id`, `views_count`, `favorites_count`, `finished_count`) VALUES
-(1, 22, 7, 2, 1),
-(1, 23, 14, 4, 4),
-(1, 33, 7, 2, 1),
-(1, 41, 14, 4, 4),
-(1, 42, 7, 2, 1),
+(1, 22, 14, 4, 1),
+(1, 23, 59, 9, 4),
+(1, 33, 14, 4, 1),
+(1, 41, 59, 9, 4),
+(1, 42, 14, 4, 1),
 (13, 22, 5, 2, 1),
 (13, 23, 2, 1, 0),
 (13, 33, 5, 2, 1),
@@ -698,7 +752,7 @@ ALTER TABLE `recipe_ingredients`
 -- AUTO_INCREMENT for table `recipe_views`
 --
 ALTER TABLE `recipe_views`
-  MODIFY `view_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=165;
+  MODIFY `view_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=217;
 
 --
 -- AUTO_INCREMENT for table `saved_lists`
@@ -710,7 +764,7 @@ ALTER TABLE `saved_lists`
 -- AUTO_INCREMENT for table `saved_recipes`
 --
 ALTER TABLE `saved_recipes`
-  MODIFY `saved_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=375;
+  MODIFY `saved_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=384;
 
 --
 -- AUTO_INCREMENT for table `users`

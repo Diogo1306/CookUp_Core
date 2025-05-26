@@ -31,8 +31,7 @@ class Category
             FROM categories c
             LEFT JOIN recipe_category rc ON rc.category_id = c.category_id
             GROUP BY c.category_id
-            ORDER BY total DESC
-            LIMIT 10");
+            ORDER BY total DESC");
         $stmt->execute();
         $result = $stmt->get_result();
 

@@ -52,13 +52,9 @@ class RecipeController
 
     public function getPopularRecipes()
     {
-        $recipes = Recipe::getPopularRecipes();
-
-        if (!empty($recipes)) {
-            Response::json(["success" => true, "data" => $recipes]);
-        } else {
-            Response::json(["success" => false, "message" => "Nenhuma receita popular encontrada."]);
-        }
+        $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
+        $data = Recipe::getPopularWithPagination($page);
+        Response::json(['success' => true, 'data' => $data]);
     }
 
     public function getRecommendedRecipes()
